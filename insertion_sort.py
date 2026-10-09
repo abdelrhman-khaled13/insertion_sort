@@ -22,7 +22,20 @@ def insertion_sort(arr) :
      print(f"Running time for Insertion Sort is {round((end-start)*1000,5)} ms")
      return round((end-start)*1000,5)
 
-
+def bubble_sort(arr):
+    start=time.time()
+    n=len(arr)
+    for i in range(1,n):
+        sorted =True
+        for j in range(n-i):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+                sorted = False
+        if sorted:
+            break  
+    end=time.time()
+    print(f"Running time for Bubble Sort is {round((end-start)*1000,5)} ms")           
+    return round((end-start)*1000,5)
 
 def main():
 
@@ -54,16 +67,16 @@ def main():
     ##y4s=selection_sort(arr4.copy())
     ##ys=[y1s,y2s,y3s,y4s]
 
-    ##y1b=bubble_sort(arr1.copy())
-    ##y2b=bubble_sort(arr2.copy())
-    ##y3b=bubble_sort(arr3.copy())
-    ##y4b=bubble_sort(arr4.copy())
-    ##yb=[y1b,y2b,y3b,y4b]
+    y1b=bubble_sort(arr1.copy())
+    y2b=bubble_sort(arr2.copy())
+    y3b=bubble_sort(arr3.copy())
+    y4b=bubble_sort(arr4.copy())
+    yb=[y1b,y2b,y3b,y4b]
 
 
     plt.plot(x, yi, label='insertion sort', color='yellow', linestyle='-', marker='o')
     ##plt.plot(x, ys, label='selection sort', color='red', linestyle='-', marker='o')
-    ##plt.plot(x, yb, label='bubble sort', color='blue', linestyle='-', marker='o')
+    plt.plot(x, yb, label='bubble sort', color='blue', linestyle='-', marker='o')
     
 
     plt.grid(True)
@@ -75,7 +88,10 @@ def main():
     plt.legend()
     plt.show()
 
-    
+
+
+
+   
 
 if __name__ == "__main__":
     main()               
